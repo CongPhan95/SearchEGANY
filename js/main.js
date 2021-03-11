@@ -129,8 +129,10 @@ function getProducts(keyword) {
 
 function renderProducts(product) {
     var tbody = document.querySelector('#content');
-    if (product.variants.inventory_management == null || product.variants.inventory_quantity > 0 || product.variants.inventory_policy == 'allow') {
+    if (product.variants[0].inventory_management == null || product.variants[0].inventory_quantity > 0 || product.variants[0].inventory_policy == 'allow') {
         var status = 'Stocking'
+    } else {
+        var status = 'Out of stock'
     }
     var htmls =
         `
